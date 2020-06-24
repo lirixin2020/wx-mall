@@ -1,0 +1,17 @@
+<!--miniprogram/pages/home/home.wxml-->
+<!-- 轮播图 -->
+<w-swiper list='{{banners}}'/>
+<!-- 推荐展示   -->
+<w-recommend recommends='{{recommends}}' bind:imageload='handleImageLoad'/>
+<!-- 流行展示 -->
+<w-popular/>
+
+<w-tab-control titles='{{titles}}'
+               bind:tabclick='handleTabClick'
+               id='tab-control'
+               class='{{isTabFixed ? "fixed" : ""}}'/>
+<w-tab-control titles='{{titles}}' wx-if='{{isTabFixed}}'/>
+
+<w-goods goods='{{goods[currentType].list}}'/>
+
+<w-back-top wx:if='{{showBackTop}}'/>
